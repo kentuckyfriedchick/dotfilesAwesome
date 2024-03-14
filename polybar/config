@@ -1,0 +1,463 @@
+ 
+[colors]
+background = #416c73
+background-alt = #dfja
+foreground = #a4b4aa
+primary = #jfksdj
+secondary = #dfjkda
+alert = #dfjkda
+disabled = #djfka
+
+[bar/left]
+width = 92%
+height = 40 pt
+radius = 6
+offset-x = 4%
+offset-y = 2%
+; line-border = 20
+dpi = 96
+
+bottom = false
+
+background = #1b3438
+foreground = #afbbb1
+
+line-size = 3pt
+
+boder-size = 4pt
+border-color = #00000
+
+padding-left = 3
+padding-right = 3
+
+module-margin = 1
+
+separator=
+separator-foreground = $(colors.disabled)
+font-0 = FontAwesome:style=Regular:size=10;4
+font-1 = Awesome 6, Brands Regular:style=Regular:size=10;4
+font-2 = Font Awesome 6  Free Solid:style=Solid;4
+font-3 = Font Awesome 6 Free Regular:style-Regular;4
+
+modules-left = menu
+modules-center = files browser terminal spotify settings
+modules-right = battery spacer date
+cursor-click = pointer
+cursor-scroll = ns.resize
+
+enable-ipc = true
+
+[bar/center]
+width = 25%
+height = 30pt
+radius = 6
+offset-x = 50%
+;DPI = 96
+
+background = $(colors.background)
+foreground = $(colors.foreground)
+
+line-size = 3pt
+
+boder-size = 4pt
+border-color = #00000
+
+padding-left = 5
+padding-right = 5
+
+module-margin = 1
+
+separator=
+separator-foreground = $(colors.disabled)
+
+font-0 = FontAwesome:style=Regular:size=10;4
+font-1 = Font Awesome 6 Brands Regular:style=Regular:size=10;4
+font-2 = Font Awesome 6  Free Solid:style=Solid;4
+font-3 = Font Awesome 6 Free Regular:style-Regular;4 
+font-4 = icomoon Regular
+
+modules-center = terminal browser editor files 
+
+cursor-click = pointer
+cursor-scroll = ns.resize
+
+enable-ipc = true
+
+
+[module/menu]
+type = custom/text
+content = "    "
+
+click-left = "~/.config/rofi/launchers/type-6/launcher.sh"
+content-foreground = #f7f4e0
+
+[module/terminal]
+type = custom/text
+content = "    "   
+
+click-left = "kitty"
+content-foreground = #f7f4e0
+
+[module/browser]
+type = custom/text
+content = "    "
+click-left = "firefox"
+content-foreground = #f7f4e0
+
+[module/settings]
+type = custom/text
+content = "    "
+
+click-left = "gnome-control-center"
+content-foreground = #f7f4e0
+
+[module/files]
+type = custom/text
+content = "  🗁  " 
+
+click-left = "nautilus"
+content-foreground = #f7f4e0
+
+[module/spotify]
+type = custom/text
+content = "    "
+
+click-left = "spotify"
+content-foreground = #f7f4e0
+
+
+[module/spacer]
+type = custom/text
+content = "    "
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+battery = BAT0
+adapter = ADP1
+
+poll-interval = 5
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = 🔋
+label-full-foreground = ${color.green}
+
+ramp-capacity-0 = 🔋
+ramp-capacity-1 = 🔋
+ramp-capacity-2 = 🔋
+ramp-capacity-3 = 🔋
+ramp-capacity-4 = 🔋
+
+animation-charging-0 =   🔋
+animation-charging-1 =   🔋
+animation-charging-2 =   🔋
+animation-charging-3 =   🔋
+animation-charging-4 =   🔋
+
+animation-charging-framerate = 750
+
+
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %Y-%m-%d%
+
+; Optional time format
+time = %H %M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = $(colors.background)
+format-foreground = #afbbb1
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date%   %time%
+label-font = 3
+label-foreground = #f7f4e0
+content-foreground = #f7f4e0
+content-font = "Amiri Bold Italic"
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+override-redirect = true
+
+
+
+
+;tray-position = right
+
+;wm-restack = generic
+;wm-restack = bspwm
+;we-restack = i3
+
+
+
+
+
+
+
+
+
+
+
+
+
+; [bar/awesome]
+; ;override-redirect = true
+; ;wm-restack = awesome-client
+; monitor = ${env:MONITOR:}
+; width = 100%
+; height = 40
+; fixed-center = true
+; border-size= 0
+; background = ${colors.bg}
+; foreground = ${colors.fg}
+; padding-left = 7
+; padding-right = 5
+; module-margin-left = 2
+; module-margin-right = 2
+; font-0 = Montserrat:weight=SemiBold:size=10;2
+; font-1 = Hack Nerd Font:size=12;2
+; font-2 = Montserrat:weight=Medium:size=10;2
+; cursor-click = pointer
+; cursor-scroll = ns-resize
+; ;;;;;; Module Positioning
+; modules-left = term yt disk
+; modules-center = workspaces
+; modules-right = wallpaper shot color audio battery date powermenu
+
+; [bar/big]
+; monitor = ${env:MONITOR:DVI-D-0}
+; width = 100%
+; height = 80
+; fixed-center = true
+; border-size= 0
+; background = ${colors.bg}
+; foreground = ${colors.fg}
+; padding-left = 7
+; padding-right = 7
+; module-margin-left = 2
+; module-margin-right = 2
+; font-0 = Montserrat:weight=SemiBold:size=20;4
+; font-1 = Hack Nerd Font:size=24;4
+; font-2 = Montserrat:weight=Medium:size=20;4
+; cursor-click = pointer
+; cursor-scroll = ns-resize
+; ;;;;;; Module Positioning
+; modules-left = term hostname
+; modules-center = bspwm
+; modules-right = wallpaper shot color disk audio date battery powermenu
+
+
+; [module/audio]
+;     type = internal/pulseaudio
+;     sink = alsa_output.pci-0000_12_00.3.analog-stereo
+;     use-ui-max = true
+;     format-volume = <ramp-volume> <label-volume>
+;     label-muted = " "
+;     ramp-volume-0 = " "
+;     ramp-volume-1 = " "
+;     click-right = "pactl set-sink-volume @DEFAULT_SINK@ -1000"
+;     click-middle = "pavucontrol"
+;     interval = 5
+;     label-active-font = 1
+
+; [module/date]
+;     type = internal/date
+;     interval = 5
+;     date = %a, %b %d
+;     time = %k:%M
+;     label = %{T3}%date%%{T-}  %time%
+
+; [module/battery]
+;     type = internal/battery
+;     battery = BAT0
+;     adapter = ADP1
+;     full-at = 98
+;     format-charging = <animation-charging> <label-charging>
+;     format-discharging = <animation-discharging> <label-discharging>
+;     format-discharging-underline = ${self.format-charging-underline}
+;     format-full-prefix = " "
+;     format-full-prefix-foreground = ${colors.fg}
+;     format-full-underline = ${self.format-charging-underline}
+;     ramp-capacity-0 = 
+;     ramp-capacity-1 = 
+;     ramp-capacity-2 = 
+;     ramp-capacity-foreground = ${colors.fg}
+;     animation-charging-0 = 
+;     animation-charging-1 = 
+;     animation-charging-2 = 
+;     animation-charging-foreground = ${colors.fg}
+;     animation-charging-framerate = 750
+;     animation-discharging-0 = 
+;     animation-discharging-1 = 
+;     animation-discharging-2 = 
+;     animation-discharging-foreground = ${colors.fg}
+;     animation-discharging-framerate = 750
+
+; [module/powermenu]
+;     type = custom/menu
+;     expand-left = true
+;     format-spacing = 2
+;     label-open = "  "
+;     label-close = ""
+;     label-separator = " "
+;     label-separator-foreground = ${colors.fg}
+;     menu-0-0 = ""
+;     menu-0-0-exec = sudo reboot
+;     menu-0-1 = "  "
+;     menu-0-1-exec = sudo poweroff
+
+; [module/xwindow]
+;     type = internal/xwindow
+;     format = <label>
+;     label = %title%
+;     label-maxlen = 50
+;     label-empty = " "
+
+; [module/shot]
+;     type = custom/script
+;     exec = echo ""
+;     click-left = "flameshot screen -p ~/Downloads/"
+;     click-right = "flameshot gui"
+
+; [module/term]
+;     type = custom/script
+;     exec = echo " "
+;     click-left = "alacritty"
+
+; [module/workspaces]
+;     type = internal/xworkspaces
+;     pin-workspaces = false
+;     enable-click = true
+;     enable-scroll = false
+;     format-padding = 1
+;     format = <label-state>
+;     label-monitor = %name%
+;     icon-default = ""
+;     label-active = ""
+;     label-active-foreground = ${colors.blue}
+;     label-active-padding = 1
+;     label-occupied = ""
+;     label-occupied-foreground = ${colors.fg}
+;     label-occupied-padding = 1
+;     label-urgent = ""
+;     label-urgent-foreground = ${colors.cyan}
+;     label-urgent-padding = 1
+;     label-empty = ""
+;     label-empty-foreground = ${colors.gray}
+;     label-empty-padding = 1
+
+; ; [module/yt]
+; ;     type = custom/script
+; ;     interval = 1800
+; ;     format-prefix = "   "
+; ;     format = <label>
+; ;     exec = ~/.config/polybar/sub.py
+
+; [module/color]
+;     type = custom/script
+;     exec = echo ""
+;     click-left = "gpick"
+
+; [module/disk]
+;     type = custom/script
+;     interval = 300
+;     format-prefix = "﫭 "
+;     format = <label>
+;     exec = ~/.config/polybar/disk.sh
+
+; [module/hostname]
+;     type = custom/script
+;     interval = 9999
+;     exec = hostnamectl --static
+
+; [module/wallpaper]
+;     type = custom/script
+;     exec = echo " "
+;     click-left= feh -z --bg-fill ~/Media/wallpapers/wallpapers/abstract
+;     click-right= feh -z --bg-fill ~/Media/wallpapers/wallpapers/landscape
+;     click-middle= feh -z --bg-fill ~/Media/wallpapers/wallpapers/art
+
+; [module/bspwm]
+;     type = internal/bspwm
+;     pin-workspaces = true
+;     inline-mode = false
+;     enable-click = true
+;     enable-scroll = true
+;     reverse-scroll = true
+;     fuzzy-match = true
+;     ws-icon-0 = code;
+;     ws-icon-1 = office;
+;     ws-icon-2 = graphics;
+;     ws-icon-3 = mail;
+;     ws-icon-4 = web;
+;     ws-icon-default = " "
+;     format = <label-state> <label-mode>
+;     label-monitor = %name%
+;     label-dimmed-empty-foreground = ${colors.gray}
+;     label-focused = %icon%
+;     label-focused-foreground = ${colors.blue}
+;     label-occupied = %icon%
+;     label-urgent = %icon%
+;     label-urgent-foreground = ${colors.red}
+;     label-empty = %icon%
+;     label-empty-foreground = ${colors.gray}
+;     ;label-monocle = 
+;     ;label-tiled = 
+;     ;label-fullscreen = 
+;     ;label-floating = 
+;     ;label-pseudotiled = P
+;     ;label-locked = 
+;     ;label-locked-foreground = ${colors.red}
+;     ;label-sticky = 
+;     ;label-sticky-foreground = ${colors.cyan}
+;     ;label-private = 
+;     ;label-private-foreground = ${colors.fg}
+;     ;label-marked = M
+;     label-separator = " "
+;     label-separator-padding = 1
+;     ; label-separator-foreground = 
+
+; [colors]
+; bg = #FF080808
+; fg = #f9f5d7
+; gray = #bdae93
+; red = #fb4934
+; green = #b8bb26
+; yellow = #fabd2f
+; blue = #83a598
+; magenta = #d3869b
+; cyan = #8ec07c
+; orange = #fe8019
+
+
+; [settings]
+; screenchange-reload = true
+; ;compositing-background = xor
+; ;compositing-background = screen
+; ;compositing-foreground = source
+; ;compositing-border = over
+; ;pseudo-transparency = false [global/wm] margin-top = 5 margin-bottom = 5 vim:set ft=dosini:
